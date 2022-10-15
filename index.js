@@ -13,9 +13,12 @@ app.use(express.json());
 app.use(cors());
 dotenv.config();
 
+app.get("/",(req,res)=>{
+  res.send("Success")
+})
+
 app.post("/user", createUserRouter);
 app.post("/cart", cartRouter);
-
 app.post("/signin", loginRouter);
 app.post("/order", orderRouter);
 app.post("/deletecart/:id",cartRouter)
