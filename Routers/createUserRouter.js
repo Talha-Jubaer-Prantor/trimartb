@@ -7,13 +7,15 @@ const cartSchema = require("../Schema/cartSchema");
 const Cart = new mongoose.model("Cart", cartSchema);
 
 router.post("/user", (req, res) => {
-  const { name, email, phone, password } = req.body;
+  const { name, email, phone, password,address } = req.body;
+  console.log(req.body)
   // Creating new user
   const newUser = new User({
     name: name,
     email: email,
     phone: phone,
     password: password,
+    address:address
   });
   newUser.save().then(res.send(newUser));
 
