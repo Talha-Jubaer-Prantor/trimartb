@@ -28,6 +28,8 @@ router.post("/signin", async (req, res) => {
           userId: validUser[0].id,
           name: validUser[0].name,
           email: validUser[0].email,
+          phone:validUser[0].phone,
+          address:validUser[0].address
         });
       } else {
         res.send([]);
