@@ -5,27 +5,38 @@ const cartSchema = require("../Schema/cartSchema");
 const Cart = mongoose.model("Cart", cartSchema);
 
 router.post("/cart", async (req, res) => {
-  const product = req.body.selectedProduct;
-  await Cart.findOneAndUpdate(
-    { email: req.body.email },
-    {
-      $push: {
-        cart: product,
-      }
-    }
-  );
+  const product = req.body.product;
+  console.log(product)
+  const newCart=new Cart({
+    email:req.body.email,
+    item:product
+  })
+  newCart.save()
+
+  // await Cart.findOneAndUpdate(
+  //   { email: req.body.email },
+  //   {
+  //     $push: {
+  //       cart: product,
+  //     }
+  //   }
+  // );
 });
  
 
 
-router.post('/deletecart/:id',async (req,res)=>{
-  const id=req.params.id
-console.log(id)
-  await Cart.findOneAndUpdate({email:id},
-    {
-    $pull:{cart: req.body}
-  }).then(res.send())
 
+
+router.delete('/deletecart/:id',async (req,res)=>{
+  const id=req.params
+
+  Cart.findOneAndDelete({id:id},(err,data)=>{
+    if(err){
+      console.log(err)
+    }else{res.send()}
+  })
+
+ 
 })
 
 module.exports = router;

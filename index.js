@@ -21,7 +21,7 @@ app.post("/user", createUserRouter);
 app.post("/cart", cartRouter);
 app.post("/signin", loginRouter);
 app.post("/order", orderRouter);
-app.post("/deletecart/:id",cartRouter)
+app.delete("/deletecart/:id",cartRouter)
 app.post("/confirmorder",orderRouter)
 app.post("/adminpost",adminPostRouter)
 app.get("/myorder/:id", orderRouter);

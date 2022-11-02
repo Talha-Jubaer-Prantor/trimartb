@@ -9,7 +9,7 @@ const Cart = mongoose.model("Cart", cartSchema);
 
 // This will create order
 router.post("/order",async (req, res) => {
-  console.log(req.body.user.email);
+  console.log(req.body);
   const newOrder = new Order({
     userId: req.body.userId,
     orderOwner: req.body.user,
@@ -18,9 +18,16 @@ router.post("/order",async (req, res) => {
   });
   await newOrder.save();
 
-  Cart.findOneAndUpdate({email:req.body.user.email},{
-    $pull:{cart: {}}
-  }).then(res.send('a'))
+  // Cart.findOneAndUpdate({email:req.body.user.email},{
+  //   $pull:{cart: {}}
+  // }).then(res.send('a'))
+  Cart.deleteMany({email:req.body.user.email},(err,data)=>{
+    if(err){
+      console.log(err)
+    }else{
+      res.send()
+    }
+  })
 });
 
 // This will show cart items

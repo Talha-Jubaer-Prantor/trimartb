@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const cartSchema = mongoose.Schema({
   email: { type: String },
-  cart: { type: Array },
+  item:{type:Object}
 });
 
 module.exports = cartSchema;
