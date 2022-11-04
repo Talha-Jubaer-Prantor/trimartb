@@ -89,4 +89,14 @@ router.get("/confirmedorder",(req,res)=>{
   })
 })
 
+
+router.delete("/deleteconfirmorder/:id", (req,res)=>{
+  console.log(req.params.id)
+  Order.findOneAndDelete({_id:req.params.id},(err,data)=>{
+    if(err){
+      console.log(err)
+    }else{res.send()}
+  })
+})
+
 module.exports = router
