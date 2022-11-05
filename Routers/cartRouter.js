@@ -29,10 +29,10 @@ router.post("/cart", async (req, res) => {
 
 router.delete('/deletecart/:id',async (req,res)=>{
   const id=req.params.id
-
-  Cart.findOneAndDelete({id:id},(err,data)=>{
+console.log(id)
+  Cart.findOneAndDelete({_id:id},(err,data)=>{
     if(err){
-      console.log(err)
+      res.send(err)
     }else{res.send()}
   })
 
