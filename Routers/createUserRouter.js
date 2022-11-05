@@ -20,11 +20,11 @@ router.post("/user", (req, res) => {
   newUser.save().then(res.send(newUser));
 
   // Creating cart as an user opens an account
-  const newCart = new Cart({
-    email: req.body.email,
-    cart: [],
-  });
-  newCart.save().then();
+  // const newCart = new Cart({
+  //   email: req.body.email,
+  //   cart: [],
+  // });
+  // newCart.save().then();
 });
 
 module.exports = router;
