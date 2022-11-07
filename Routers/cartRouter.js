@@ -13,14 +13,6 @@ router.post("/cart", async (req, res) => {
   })
   newCart.save()
 
-  // await Cart.findOneAndUpdate(
-  //   { email: req.body.email },
-  //   {
-  //     $push: {
-  //       cart: product,
-  //     }
-  //   }
-  // );
 });
  
 
