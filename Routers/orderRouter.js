@@ -15,6 +15,7 @@ router.post("/order", async (req, res) => {
     orderOwner: req.body.user,
     status: false,
     order: req.body.orders,
+    transiction:req.body.transiction
   });
   await newOrder.save();
 

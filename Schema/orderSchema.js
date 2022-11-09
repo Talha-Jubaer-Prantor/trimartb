@@ -5,6 +5,7 @@ const orderSchema = mongoose.Schema({
   status:{type:Boolean},
   orderOwner: { type: Object },
   order: { type: Array },
+  transiction:{type:Object}
 });
 
 module.exports = orderSchema;

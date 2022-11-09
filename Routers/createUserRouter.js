@@ -8,9 +8,9 @@ router.post("/user", (req, res) => {
   const { name, email, phone, password, address } = req.body;
 
   User.find({ email: email }, (err, data) => {
-    if (data.length<1) {
-      const user=false
-      console.log(user)
+    if (data.length < 1) {
+      const user = false;
+      console.log(user);
       const newUser = new User({
         name: name,
         email: email,
@@ -18,15 +18,12 @@ router.post("/user", (req, res) => {
         password: password,
         address: address,
       });
-      newUser.save()
-      .then(res.send(user));
-    }else{
-      const user=true
-      res.send(user)
+      newUser.save().then(res.send(user));
+    } else {
+      const user = true;
+      res.send(user);
     }
   });
-
-  // Creating new user
 });
 
 module.exports = router;
