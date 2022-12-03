@@ -12,6 +12,7 @@ router.post("/cart", async (req, res) => {
     item:product
   })
   newCart.save()
+  .then(res.send(true))
 
 });
  

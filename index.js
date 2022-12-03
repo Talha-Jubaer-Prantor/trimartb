@@ -22,7 +22,7 @@ app.post("/cart", cartRouter);
 app.post("/signin", loginRouter);
 app.post("/order", orderRouter);
 app.delete("/deletecart/:id",cartRouter)
-app.delete("/deleteconfirmorder/:id",orderRouter)
+app.post("/deleteconfirmorder/:id",orderRouter)
 app.post("/confirmorder",orderRouter)
 app.post("/adminpost",adminPostRouter)
 app.get("/myorder/:id", orderRouter);
