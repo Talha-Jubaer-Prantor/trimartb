@@ -15,15 +15,17 @@ router.post("/order", async (req, res) => {
     order: req.body.orders,
     transiction:req.body.transiction
   });
-  await newOrder.save();
-
-  Cart.deleteMany({ email: req.body.user.email }, (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send();
-    }
-  });
+       newOrder.save()
+       .then(
+        Cart.deleteMany({ email: req.body.user.email }, (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send();
+          }
+        })
+       )
+  
 });
 
 // This will show cart items
