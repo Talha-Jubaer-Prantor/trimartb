@@ -32,13 +32,7 @@ app.get("/confirmedorder",orderRouter)
 app.post("/deleteorder",orderRouter)
 app.get("/product",adminPostRouter)
 
-mongoose.connect(
-    "mongodb+srv://cluster0:cluster0@cluster0.hacpu.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then(console.log("Database connection successful"))
-  .catch((err) => {
-    console.log(err);
-  });
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
